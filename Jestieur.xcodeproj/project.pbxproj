@@ -1,0 +1,416 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		233E2C640A83C768005A62DF /* Build & Copy */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 233E2D890A83C7AC005A62DF /* Build configuration list for PBXAggregateTarget "Build & Copy" */;
+			buildPhases = (
+				233E2C690A83C783005A62DF /* ShellScript */,
+			);
+			dependencies = (
+				233E2C660A83C76D005A62DF /* PBXTargetDependency */,
+			);
+			name = "Build & Copy";
+			productName = "Build & Install";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		16BA95420A7EB2EB001E4983 /* JestieurPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA95410A7EB2EB001E4983 /* JestieurPlugIn.m */; };
+		217B7EDF11CFF39400BCE007 /* recognized.png in Resources */ = {isa = PBXBuildFile; fileRef = 217B7EDE11CFF39400BCE007 /* recognized.png */; };
+		217B7F6311CFF88100BCE007 /* gestures_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 217B7F5911CFF88100BCE007 /* gestures_data.txt */; };
+		217B7F6411CFF88100BCE007 /* MCGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B7F5C11CFF88100BCE007 /* MCGestureView.m */; };
+		217B7F6511CFF88100BCE007 /* MCGestureAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B7F5F11CFF88100BCE007 /* MCGestureAnalyzer.m */; };
+		217B7F6611CFF88100BCE007 /* MCPointsContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B7F6211CFF88100BCE007 /* MCPointsContainer.m */; };
+		219A274211D364DB00B192F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219A260411D364BD00B192F1 /* Foundation.framework */; };
+		219A274311D364DB00B192F1 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219A260711D364D000B192F1 /* AppKit.framework */; };
+		21C8D12E11D3613800305398 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21C8D09911D35FBA00305398 /* Quartz.framework */; };
+		21DD416911D26C2C00D52829 /* NSValue+CGPointConversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DD416811D26C2C00D52829 /* NSValue+CGPointConversions.m */; };
+		7238D5520DB6988600E9A42D /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7238D5500DB6988600E9A42D /* Settings.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		233E2C650A83C76D005A62DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = Jestieur;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16AA5C440A7EEE7300888E31 /* Jestieur_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Jestieur_Prefix.pch; sourceTree = "<group>"; };
+		16BA95400A7EB2EB001E4983 /* JestieurPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JestieurPlugIn.h; sourceTree = "<group>"; };
+		16BA95410A7EB2EB001E4983 /* JestieurPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = JestieurPlugIn.m; sourceTree = "<group>"; };
+		217B7EDE11CFF39400BCE007 /* recognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recognized.png; sourceTree = "<group>"; };
+		217B7F5811CFF88100BCE007 /* MCGestureCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCGestureCore.h; sourceTree = "<group>"; };
+		217B7F5911CFF88100BCE007 /* gestures_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gestures_data.txt; sourceTree = "<group>"; };
+		217B7F5B11CFF88100BCE007 /* MCGestureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCGestureView.h; sourceTree = "<group>"; };
+		217B7F5C11CFF88100BCE007 /* MCGestureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCGestureView.m; sourceTree = "<group>"; };
+		217B7F5E11CFF88100BCE007 /* MCGestureAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCGestureAnalyzer.h; sourceTree = "<group>"; };
+		217B7F5F11CFF88100BCE007 /* MCGestureAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCGestureAnalyzer.m; sourceTree = "<group>"; };
+		217B7F6111CFF88100BCE007 /* MCPointsContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPointsContainer.h; sourceTree = "<group>"; };
+		217B7F6211CFF88100BCE007 /* MCPointsContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPointsContainer.m; sourceTree = "<group>"; };
+		219A260411D364BD00B192F1 /* Foundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		219A260711D364D000B192F1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		21C8D09911D35FBA00305398 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		21DD416711D26C2C00D52829 /* NSValue+CGPointConversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+CGPointConversions.h"; sourceTree = "<group>"; };
+		21DD416811D26C2C00D52829 /* NSValue+CGPointConversions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+CGPointConversions.m"; sourceTree = "<group>"; };
+		7238D5510DB6988600E9A42D /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Settings.xib; sourceTree = "<group>"; };
+		8D5B49B6048680CD000E48DA /* Jestieur.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Jestieur.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				219A274211D364DB00B192F1 /* Foundation.framework in Frameworks */,
+				219A274311D364DB00B192F1 /* AppKit.framework in Frameworks */,
+				21C8D12E11D3613800305398 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Quartz Composer Plug In */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				21C8D0A111D35FDF00305398 /* Frameworks */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = "Quartz Composer Plug In";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				217B7EDE11CFF39400BCE007 /* recognized.png */,
+				7238D5500DB6988600E9A42D /* Settings.xib */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				21C8D1C511D362A300305398 /* NSValue+CGPointConversions */,
+				21D8BACD11D23D3900CC5D96 /* Plugin */,
+				217B7F5711CFF88100BCE007 /* MCGestureRecognizer */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B6048680CD000E48DA /* Jestieur.plugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		217B7F5711CFF88100BCE007 /* MCGestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				217B7F5D11CFF88100BCE007 /* Analyzer */,
+				217B7F5A11CFF88100BCE007 /* View */,
+				217B7F5811CFF88100BCE007 /* MCGestureCore.h */,
+				217B7F5911CFF88100BCE007 /* gestures_data.txt */,
+			);
+			name = MCGestureRecognizer;
+			sourceTree = "<group>";
+		};
+		217B7F5A11CFF88100BCE007 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				217B7F5B11CFF88100BCE007 /* MCGestureView.h */,
+				217B7F5C11CFF88100BCE007 /* MCGestureView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		217B7F5D11CFF88100BCE007 /* Analyzer */ = {
+			isa = PBXGroup;
+			children = (
+				217B7F6011CFF88100BCE007 /* Points Container */,
+				217B7F5E11CFF88100BCE007 /* MCGestureAnalyzer.h */,
+				217B7F5F11CFF88100BCE007 /* MCGestureAnalyzer.m */,
+			);
+			name = Analyzer;
+			sourceTree = "<group>";
+		};
+		217B7F6011CFF88100BCE007 /* Points Container */ = {
+			isa = PBXGroup;
+			children = (
+				217B7F6111CFF88100BCE007 /* MCPointsContainer.h */,
+				217B7F6211CFF88100BCE007 /* MCPointsContainer.m */,
+			);
+			name = "Points Container";
+			sourceTree = "<group>";
+		};
+		21C8D0A111D35FDF00305398 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21C8D09911D35FBA00305398 /* Quartz.framework */,
+				219A260411D364BD00B192F1 /* Foundation.framework */,
+				219A260711D364D000B192F1 /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		21C8D1C511D362A300305398 /* NSValue+CGPointConversions */ = {
+			isa = PBXGroup;
+			children = (
+				21DD416711D26C2C00D52829 /* NSValue+CGPointConversions.h */,
+				21DD416811D26C2C00D52829 /* NSValue+CGPointConversions.m */,
+			);
+			name = "NSValue+CGPointConversions";
+			sourceTree = "<group>";
+		};
+		21D8BACD11D23D3900CC5D96 /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				16BA95400A7EB2EB001E4983 /* JestieurPlugIn.h */,
+				16BA95410A7EB2EB001E4983 /* JestieurPlugIn.m */,
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				16AA5C440A7EEE7300888E31 /* Jestieur_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* Jestieur */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "Jestieur" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Jestieur;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = "Quartz Composer Plug In";
+			productReference = 8D5B49B6048680CD000E48DA /* Jestieur.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = glennfrancismurray;
+			};
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Jestieur" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* Quartz Composer Plug In */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D5B49AC048680CD000E48DA /* Jestieur */,
+				233E2C640A83C768005A62DF /* Build & Copy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7238D5520DB6988600E9A42D /* Settings.xib in Resources */,
+				217B7EDF11CFF39400BCE007 /* recognized.png in Resources */,
+				217B7F6311CFF88100BCE007 /* gestures_data.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		233E2C690A83C783005A62DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies the built plug-in to \"~/Library/Graphics/Quartz Composer Plug-Ins\" and overrides any previous version at that location\n\n#mkdir -p \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins\"\n#rm -rf \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/Jestieur.plugin\"\nopen \"$BUILT_PRODUCTS_DIR/Jestieur.plugin\"\n#cp -rf \"$BUILT_PRODUCTS_DIR/Jestieur.plugin\" \"$USER_LIBRARY_DIR/Graphics/Quartz Composer Plug-Ins/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21DD416911D26C2C00D52829 /* NSValue+CGPointConversions.m in Sources */,
+				16BA95420A7EB2EB001E4983 /* JestieurPlugIn.m in Sources */,
+				217B7F6411CFF88100BCE007 /* MCGestureView.m in Sources */,
+				217B7F6511CFF88100BCE007 /* MCGestureAnalyzer.m in Sources */,
+				217B7F6611CFF88100BCE007 /* MCPointsContainer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		233E2C660A83C76D005A62DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* Jestieur */;
+			targetProxy = 233E2C650A83C76D005A62DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7238D5500DB6988600E9A42D /* Settings.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7238D5510DB6988600E9A42D /* English */,
+			);
+			name = Settings.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Jestieur_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				PRODUCT_NAME = Jestieur;
+				WRAPPER_EXTENSION = plugin;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Jestieur_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Graphics/Quartz Composer Plug-Ins";
+				PRODUCT_NAME = Jestieur;
+				WRAPPER_EXTENSION = plugin;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
+			};
+			name = Release;
+		};
+		233E2D8A0A83C7AC005A62DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Build & Install";
+			};
+			name = Debug;
+		};
+		233E2D8B0A83C7AC005A62DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "Build & Install";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "Jestieur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Jestieur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		233E2D890A83C7AC005A62DF /* Build configuration list for PBXAggregateTarget "Build & Copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233E2D8A0A83C7AC005A62DF /* Debug */,
+				233E2D8B0A83C7AC005A62DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

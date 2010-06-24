@@ -2,5 +2,5 @@
 *.swp
 *~.nib
 build/
-.xcodeproj/ 
-!*.xcodeproj/project.pbxproj
+Jestieur.xcodeproj/*
+!Jestieur.xcodeproj/project.pbxproj

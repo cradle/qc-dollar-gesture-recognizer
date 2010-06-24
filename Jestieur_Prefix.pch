@@ -1,0 +1,5 @@
+#ifdef __OBJC__
+	#import <Quartz/Quartz.h>
+#import <Foundation/Foundation.h>
+#import "NSValue+CGPointConversions.h"
+#endif
