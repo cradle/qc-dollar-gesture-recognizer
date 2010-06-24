@@ -40,6 +40,12 @@
 	[super dealloc];
 }
 
++ (CGPoint)locationInViewOfPoint: (CGPoint) point {
+	// flipping to match built in guestures coords
+	// should probably just store new ones with QC coords
+	return CGPointMake(point.x-1,-point.y+1);
+}
+
 - (void)touchBegan: (CGPoint) touch {
 	[p_analyzer clearTouches];
 	[p_analyzer addTouchAtPoint: touch];

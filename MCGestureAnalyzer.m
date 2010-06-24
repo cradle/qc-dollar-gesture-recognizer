@@ -108,7 +108,7 @@
 }
 
 - (void) addTouchAtPoint:(CGPoint )point {
-	[p_touchesContainer addPoint: point];
+	[p_touchesContainer addPoint: [MCGestureView locationInViewOfPoint: point]];
 }
 
 - (void) bestMatchedGesture {

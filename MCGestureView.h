@@ -36,6 +36,8 @@
 	@private
 		MCGestureAnalyzer	*p_analyzer;
 }
++ (CGPoint)locationInViewOfPoint: (CGPoint) point;
+
 @property (retain) NSObject <MCGestureDelegate>*	p_delegate;
 @property (readonly) MCGestureAnalyzer*				p_analyzer;
 
