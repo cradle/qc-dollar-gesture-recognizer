@@ -74,9 +74,6 @@
 	if ([[NSFileManager defaultManager] fileExistsAtPath:_datapath] == NO) return NO;
 	
 	NSError *theError = nil;
-	//NSString *data = [NSString stringWithContentsOfFile: fileDataPath
-	//										   encoding: NSASCIIStringEncoding
-	//											  error: &theError];
 	NSString *data = [NSString stringWithContentsOfFile: _datapath 
 											   encoding: NSASCIIStringEncoding
 												  error: &theError];
@@ -94,9 +91,6 @@
 				NSString *y = [cPoint substringWithRange:NSMakeRange(middle+1,[cPoint length]-middle-2)];
 
 				CGPoint _p = CGPointMake([x doubleValue], [y doubleValue]);
-				//NSPoint _n = NSPointFromCGPoint(_p);
-				//NSValue* _ns = [NSValue valueWithPoint: _n];
-				//NSValue* _ns = [NSValue valueWithPoint: NSPointFromCGPoint(_p)];
 				[_pointsList addObject: (NSValue*)[NSValue valueWithPoint: NSPointFromCGPoint(_p)]];
 			}
 			[p_gesturesList addObject: [NSDictionary dictionaryWithObjectsAndKeys:

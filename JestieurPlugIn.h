@@ -62,6 +62,10 @@
 @property(assign) NSString* error;
 @property(assign) BOOL wasTouching;
 @property(assign) NSString* outputStatus;
+@property(assign) NSString* outputName;
+@property(assign) double outputScore;
+@property(assign) double outputRatio;
 @property(assign) NSString* outputErrors;
+@property(assign) BOOL outputMatch;
 
 @end

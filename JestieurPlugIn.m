@@ -10,25 +10,34 @@
 #import "JestieurPlugIn.h"
 #import "MCGestureCore.h"
 
-#define	kQCPlugIn_Name				@"Jestieur"
-#define	kQCPlugIn_Description	    @"Jestieur Unistroke Recognition by Glenn Francis Murray.\n\nRecognise gestures, or, more specifically, unistrokes. Unistrokes are defined as gestures (or glyphs) with a start and an end, and where 'the pen doesn't leave the paper'.\n\nThe plugin will track the input on X & Y whilst the 'Touch' boolean is true. When the 'Touch' boolean becomes false, it will calculate the closest gesture from its interal database, then write it to that 'Status' output field.\n\nThe X,Y coordinate system used is the standard Quartz Composer, 2 units wide, [-1...1], (0,0) centered, square pixel arrangement.\n\n\nJestieur $1 Unistroke Recognizer QuartzComposer Plugin by Glenn Francis Murray on 22/06/10.\nCopyright (c) 2010 Glenn Francis Murray. All rights reserved.\n\n//TODO: insert license that allows distribution and enforces code sharing\n\nThe ObjectiveC Code is based on MCGestureRecognizer by 'malcom' on 14/08/09. Copyright 2009 Daniele Margutti 'malcom'. All rights reserved. He released the code for use in commercial or opensource projects without limitations, as long as with attribution: 'MCGestureRecognizer by Daniele Margutti - http://www.malcom-mac.com'.\nMCGestureRecogniser signficantly modified by Glenn Francis Murray on 22/06/10 to interact with QuartzComposer on OS X without UIKit. Modifications Copyright (c) 2010 Glenn Francis Murray. All rights reserved.\n\nThe code is on the '$1 Unistroke Recognizer' by Jacob O. Wobbrock,Andrew D. Wilson,Yang Li \nhttp://depts.washington.edu/aimgroup/proj/dollar/\nhttp://blog.makezine.com/archive/2008/11/gesture_recognition_for_javasc.html"
+#define	kQCPlugIn_Name				@"$1 Jestieur: Unistroke Gesture Recognizer"
+#define	kQCPlugIn_Description	    @"$1 Jestieur: Unistroke Gesture Recognizer by Glenn Francis Murray.\n\nRecognises gestures, or, more specifically, unistrokes. Unistrokes are defined as gestures (or glyphs) with a start and an end, and where 'the pen doesn't leave the paper'.\n\nThe plugin will track the input on X & Y whilst the 'Touch' boolean is true. When the 'Touch' boolean becomes false, it will calculate the closest gesture from its interal database, then write it to that 'Name' output field, setting 'Match' to FALSE if there was none.\n\nThe X,Y coordinate system used is the standard Quartz Composer, 2 units wide, [-1...1], (0,0) centered, square pixel arrangement.\n\nThe returned 'score' value is how near the sampled gesture was to the reference gesture, 1.0 means perfect match (as far as $1 recognition is concerned). The 'ratio' output is a simple fraction of how close the nearest other gesture match was. Higher is more ambiguous, lower is more certain it's just one gesture.\n\nFor more information on the theory behind the $1 Recognizer, visit it's originators at http://depts.washington.edu/aimgroup/proj/dollar/\n"
+#define kQCPlugin_Copyright			@"\n//  Attribution must be preserved.\n//	Licence must be preserved upon transfer.\n//\n//  You have permission to:\n//   - use Jestieur:\n//     + for personal use\n//	   + for personal profit (eg. VJ)\n//   - distribute Jestieur:\n//     + not for profit:\n//		 > unmodified, without its source\n//		 > modified, with its source\n//     + for profit, as part of a larger work:\n//		 > modified or unmodified, with its source mad public\n//   - modify Jestieur:\n//	   + for personal use\n//	   + for personal profit, with modified source made public\n\nJestieur $1 Unistroke Recognizer QuartzComposer Plugin by Glenn Francis Murray on 22/06/10.\nCopyright (c) 2010 Glenn Francis Murray. All rights reserved.\n\nThe ObjectiveC Code is based on MCGestureRecognizer by 'malcom' on 14/08/09.\nCopyright 2009 Daniele Margutti 'malcom'. All rights reserved.\nHe released the code for use in commercial or opensource projects without limitations, as long as with attribution:\n\t'MCGestureRecognizer by Daniele Margutti - http://www.malcom-mac.com'.\n\nMCGestureRecogniser signficantly modified by Glenn Francis Murray on 22/06/10\nModified to interact with QuartzComposer on OS X without UIKit & integrated into QCPlugIn.\n\nModifications Copyright (c) 2010 Glenn Francis Murray. All rights reserved.\n\nThe code is based on the '$1 Unistroke Recognizer'\n\tby Jacob O. Wobbrock,\n\tAndrew D. Wilson,\n\tYang Li \nhttp://depts.washington.edu/aimgroup/proj/dollar/\nhttp://blog.makezine.com/archive/2008/11/gesture_recognition_for_javasc.html"
 
 @implementation JestieurPlugIn
 
 /* MCGestureRecogniser Delegate Methods */ //TODO: move to a separate component
 - (void) MCGestureDelegateGestureNotRecognized:(MCGestureView *) _view {
 	self.outputStatus = @"Not recognized";
+	self.outputMatch = FALSE;	
+	self.outputScore = 0.0;
+	self.outputRatio = 0.0;
+	self.outputName = @"";
 }
 - (void) MCGestureDelegate:(MCGestureView *) _view recognizedGestureWithName:(NSString *) _name score:(CGFloat) _score ratio:(CGFloat) _ratio 
 {
 	self.outputStatus = [NSString stringWithFormat:@"Best Match '%@' \n(score:%.2f,ratio:%.2f)",_name,_score,_ratio];
+	self.outputMatch = TRUE;
+	self.outputScore = (double)_score;
+	self.outputRatio = (double)_ratio;
+	self.outputName = [NSString stringWithString: _name];
 }
 - (void) MCGestureDelegateRecognizingGesture:(MCGestureView *) _view {
-	self.outputStatus = @"Recognizing...";
+	self.outputStatus = @"Processing...";
 }
 
 /* Attributes */
-@dynamic inputX, inputY, inputTouch, outputStatus, outputErrors;
+@dynamic inputX, inputY, inputTouch, outputStatus, outputErrors, outputName, outputScore, outputRatio, outputMatch;
 @synthesize wasTouching, error;
 
 + (NSDictionary*) attributes
@@ -36,7 +45,9 @@
 	return [NSDictionary dictionaryWithObjectsAndKeys:kQCPlugIn_Name, 
 			QCPlugInAttributeNameKey, 
 			kQCPlugIn_Description, 
-			QCPlugInAttributeDescriptionKey, 
+			QCPlugInAttributeDescriptionKey,
+			kQCPlugin_Copyright,
+			QCPlugInAttributeCopyrightKey,
 			nil];
 }
 
@@ -61,7 +72,25 @@
 	if([key isEqualToString:@"inputTouch"])
 		return [NSDictionary dictionaryWithObjectsAndKeys:
 				@"Touch", QCPortAttributeNameKey,
-				//FALSE, QCPortAttributeDefaultValueKey,
+				FALSE, QCPortAttributeDefaultValueKey,
+				nil];
+	if([key isEqualToString:@"outputMatch"])
+		return [NSDictionary dictionaryWithObjectsAndKeys:
+				@"Match?", QCPortAttributeNameKey,
+				FALSE, QCPortAttributeDefaultValueKey,
+				nil];
+	if([key isEqualToString:@"outputName"])
+		return [NSDictionary dictionaryWithObjectsAndKeys:
+				@"Unistroke", QCPortAttributeNameKey,
+				@"", QCPortAttributeDefaultValueKey,
+				nil];
+	if([key isEqualToString:@"outputRatio"])
+		return [NSDictionary dictionaryWithObjectsAndKeys:
+				@"Ratio", QCPortAttributeNameKey,
+				nil];
+	if([key isEqualToString:@"outputScore"])
+		return [NSDictionary dictionaryWithObjectsAndKeys:
+				@"Score", QCPortAttributeNameKey,
 				nil];
 	return nil;
 }
