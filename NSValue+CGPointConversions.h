@@ -5,8 +5,8 @@
 //  Implementing the missing functionality that is in UIKit
 //	that MCGestureRecogniser is expecting
 //
-//  Created by Glenn Murray on 24/06/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Created by Glenn Francis Murray on 24/06/10.
+//  Public Domain
 //
 
 #import <Foundation/Foundation.h>

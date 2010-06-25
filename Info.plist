@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Jestieur version 1.0, Copyright YourCompany.</string>
+	<string>Jestieur $ Stroke Recognition version 1.0, Copyright Glenn Francis Murray.</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleShortVersionString</key>

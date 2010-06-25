@@ -2,8 +2,11 @@
 //  NSValue+CGPointConversions.m
 //  Jestieur
 //
-//  Created by Glenn Murray on 24/06/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Implementing the missing functionality that is in UIKit
+//	that MCGestureRecogniser is expecting
+//
+//  Created by Glenn Francis Murray on 24/06/10.
+//  Public Domain
 //
 
 #import "NSValue+CGPointConversions.h"
@@ -21,7 +24,7 @@
 
 @implementation NSValueCGPointConversions
 + (NSValue *) NSValueWithCGPoint: (CGPoint) point {
-	NSLog(@"In NSValue valueWithCGPoint with p=%s", point);
+	//NSLog(@"In NSValue valueWithCGPoint with p=%s", point);
 	//NSPoint ns_point = NSPointFromCGPoint(point);
 	//NSLog(@"In NSValue valueWithCGPoint with ns_p=%s", ns_point);
 	//NSValue * ns_value= [NSValue valueWithPoint: ns_point];

@@ -2,15 +2,16 @@
 //  JestieurPlugIn.m
 //  Jestieur
 //
-//  Created by Glenn Murray on 22/06/10.
-//  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
+//  Created by Glenn Francis Murray on 22/06/10.
+//  Copyright (c) 2010 Glenn Francis Murray. All rights reserved.
 //
+//  TODO: insert license that allows distribution and enforces code sharing
 
 #import "JestieurPlugIn.h"
 #import "MCGestureCore.h"
 
 #define	kQCPlugIn_Name				@"Jestieur"
-#define	kQCPlugIn_Description		@"Jestieur. Recognise gestures. Uses the MCGestureRecogniser which implements the $1 Gesture Recogniser"
+#define	kQCPlugIn_Description	    @"Jestieur Unistroke Recognition by Glenn Francis Murray.\n\nRecognise gestures, or, more specifically, unistrokes. Unistrokes are defined as gestures (or glyphs) with a start and an end, and where 'the pen doesn't leave the paper'.\n\nThe plugin will track the input on X & Y whilst the 'Touch' boolean is true. When the 'Touch' boolean becomes false, it will calculate the closest gesture from its interal database, then write it to that 'Status' output field.\n\nThe X,Y coordinate system used is the standard Quartz Composer, 2 units wide, [-1...1], (0,0) centered, square pixel arrangement.\n\n\nJestieur $1 Unistroke Recognizer QuartzComposer Plugin by Glenn Francis Murray on 22/06/10.\nCopyright (c) 2010 Glenn Francis Murray. All rights reserved.\n\n//TODO: insert license that allows distribution and enforces code sharing\n\nThe ObjectiveC Code is based on MCGestureRecognizer by 'malcom' on 14/08/09. Copyright 2009 Daniele Margutti 'malcom'. All rights reserved. He released the code for use in commercial or opensource projects without limitations, as long as with attribution: 'MCGestureRecognizer by Daniele Margutti - http://www.malcom-mac.com'.\nMCGestureRecogniser signficantly modified by Glenn Francis Murray on 22/06/10 to interact with QuartzComposer on OS X without UIKit. Modifications Copyright (c) 2010 Glenn Francis Murray. All rights reserved.\n\nThe code is on the '$1 Unistroke Recognizer' by Jacob O. Wobbrock,Andrew D. Wilson,Yang Li \nhttp://depts.washington.edu/aimgroup/proj/dollar/\nhttp://blog.makezine.com/archive/2008/11/gesture_recognition_for_javasc.html"
 
 @implementation JestieurPlugIn
 

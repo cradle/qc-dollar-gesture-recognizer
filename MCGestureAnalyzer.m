@@ -35,7 +35,6 @@
 {
 	self = [super init];
 	if (self != nil) {
-		//gfm.cc:NOTE: would normaly process in parallel?
 		p_associatedView = [_view retain];
 		p_gesturesList = [[NSMutableArray alloc] init];
 		p_touchesContainer = [[MCPointsContainer alloc] init];
@@ -115,7 +114,7 @@
 	if ([p_associatedView.p_delegate respondsToSelector:@selector(MCGestureDelegateRecognizingGesture:)])
 		[p_associatedView.p_delegate MCGestureDelegateRecognizingGesture: p_associatedView];
 	
-	NSLog(@"points detected: %d",[p_touchesContainer points]);
+	//NSLog(@"points detected: %d",[p_touchesContainer points]);
 
 	[p_endElaboration release];
 	// resample

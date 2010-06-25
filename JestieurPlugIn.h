@@ -2,8 +2,36 @@
 //  JestieurPlugIn.h
 //  Jestieur
 //
-//  Created by Glenn Murray on 22/06/10.
-//  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
+//  Created by Glenn Francis Murray on 22/06/10.
+//  Copyright (c) 2010 Glenn Francis Murray. All rights reserved.
+//
+//  Disclaimer: Alpha Quality, almost guaranteed to crash itself and your Mac
+//
+//  ///////
+//  License
+//  ///////
+//
+//  Attribution must be preserved.
+//	Licence must be preserved upon transfer.
+//
+//  You have permission to:
+//   - use Jestieur:
+//     + for personal use
+//	   + for personal profit (eg. VJ)
+//   - distribute Jestieur:
+//     + not for profit:
+//		 > unmodified, without its source
+//		 > modified, with its source
+//     + for profit, as part of a larger work:
+//		 > modified or unmodified, with its source mad public
+//   - modify Jestieur:
+//	   + for personal use
+//	   + for personal profit, with modified source made public
+//
+//  All other rights reserved.
+//
+// NEXT: immediate next implementations
+//	 * split up the output of name and score to two ports
 //
 // TODO: possible enhancements
 //	 * allow external control for when to 'start', 'sample', and 'end'
