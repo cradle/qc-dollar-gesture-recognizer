@@ -37,9 +37,8 @@
 		
 		strictlyMatch = NO;
 		scoreThreshold = 0.7;
-		
-		// you can't change these while the app is runnign without invalidating the stored gestures
-		numPoints = 32;
+
+		numPoints = 64;
 		squareSize = 2.0; // was 250.0
 		halfDiagonal = 0.5 * sqrt(squareSize * squareSize + squareSize * squareSize);
 	}

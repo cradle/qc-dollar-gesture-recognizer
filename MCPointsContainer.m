@@ -22,7 +22,6 @@
 #import "NSValue+CGPointConversions.h"
 
 #define kAngleRange (45.0)
-#define kAnglePrecision (2.0)
 
 @implementation MCPointsContainer
 

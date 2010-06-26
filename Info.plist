@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleGetInfoString</key>
-	<string>$1 Jestieur version 1.0, Copyright Glenn Francis Murray.</string>
+	<string>$1 Unicode Gesture Recognizer Quartz Composer Plugin version 1.0, Copyright Glenn Francis Murray 2010</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleShortVersionString</key>
