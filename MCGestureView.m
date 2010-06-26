@@ -18,8 +18,8 @@
 //	http://blog.makezine.com/archive/2008/11/gesture_recognition_for_javasc.html
 
 #import "MCGestureView.h"
-
 #import "NSValue+CGPointConversions.h"
+#import "NSArray+NSValueConversions.h"
 
 @implementation MCGestureView
 
@@ -42,7 +42,8 @@
 
 + (CGPoint)locationInViewOfPoint: (CGPoint) point {
 	// flipping to match built in guestures coords
-	// should probably just store new ones with QC coords
+	// could probably just store new ones with QC coords
+	// but would become incompatable with other $1
 	return CGPointMake(point.x-1,-point.y+1);
 }
 
@@ -58,6 +59,11 @@
 - (void)touchEnded: (CGPoint) touch {
 	[p_analyzer addTouchAtPoint: touch];
 	[p_analyzer bestMatchedGesture];
+}
+
+- (NSArray *)postElaborationTouches {
+	// javascript can't read QC NSPoints as structures OR dictionaries, as far as I can tell.
+	return [[p_analyzer postElaborationTouches] asDictionaryArray];
 }
 
 - (void) _initSettings {

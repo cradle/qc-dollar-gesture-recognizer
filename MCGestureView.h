@@ -18,11 +18,11 @@
 //	http://blog.makezine.com/archive/2008/11/gesture_recognition_for_javasc.html
 
 #import "MCGestureAnalyzer.h"
-
 #import "NSValue+CGPointConversions.h"
+#import "NSArray+NSValueConversions.h"
 
 @protocol MCGestureDelegate
-- (void) MCGestureDelegate:(MCGestureView *) _view recognizedGestureWithName:(NSString *) _name score:(CGFloat) _score ratio:(CGFloat) _ratio;
+- (void) MCGestureDelegate:(MCGestureView *) _view recognizedGestureWithName:(NSString *) _name score:(CGFloat) _score ratio:(CGFloat) _ratio rotation:(CGFloat) _rotation size:(CGSize) _size;
 - (void) MCGestureDelegateGestureNotRecognized:(MCGestureView *) _view;
 @optional
 - (void) MCGestureDelegate:(MCGestureView *) _view checkForGestureNamed:(NSString *) _name score:(CGFloat) _score;
@@ -44,6 +44,9 @@
 - (void)touchBegan: (CGPoint) touch;
 - (void)touchMoved: (CGPoint) touch;
 - (void)touchEnded: (CGPoint) touch;
+- (NSArray *)postElaborationTouches;
+
+#import "NSArray+NSValueConversions.h"
 
 #pragma mark PRIVATE METHODS
 - (void) _initSettings;

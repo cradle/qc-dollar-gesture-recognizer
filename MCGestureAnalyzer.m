@@ -23,13 +23,9 @@
 
 #import "NSValue+CGPointConversions.h"
 
-#define kNumPoints		(16)
-#define kHalfDiagonal   ( 0.5 * sqrt(kSquareSize * kSquareSize + kSquareSize * kSquareSize))
-#define kSquareSize		(250.0)
-
 @implementation MCGestureAnalyzer
 
-@synthesize p_strictlyMatch;
+@synthesize strictlyMatch;
 
 - (id) initWithSourceView:(MCGestureView *) _view
 {
@@ -38,7 +34,14 @@
 		p_associatedView = [_view retain];
 		p_gesturesList = [[NSMutableArray alloc] init];
 		p_touchesContainer = [[MCPointsContainer alloc] init];
-		p_strictlyMatch = NO;
+		
+		strictlyMatch = NO;
+		scoreThreshold = 0.7;
+		
+		// you can't change these while the app is runnign without invalidating the stored gestures
+		numPoints = 32;
+		squareSize = 2.0; // was 250.0
+		halfDiagonal = 0.5 * sqrt(squareSize * squareSize + squareSize * squareSize);
 	}
 	return self;
 }
@@ -111,12 +114,19 @@
 	//NSLog(@"points detected: %d",[p_touchesContainer points]);
 
 	[p_endElaboration release];
-	// resample
-	p_endElaboration = [[p_touchesContainer resampledPointsWithMax: kNumPoints] retain];
-	// rotate to zero
-	[p_endElaboration rotateToZero];
-	// scale to square
-	[p_endElaboration scaleToSquareSize: kSquareSize];
+
+	// Resample
+	p_endElaboration = [[p_touchesContainer resampledPointsWithMax: numPoints] retain];
+	//CGFloat sampleRatio = numPoints / [p_touchesContainer points];
+	
+	// Rotate
+	CGFloat rotation = [p_endElaboration rotateToZero];
+	
+	// Rescale
+	CGSize size = [p_endElaboration boundingBox].size;
+	[p_endElaboration scaleToSquareSize: squareSize];
+	
+	// Translate
 	[p_endElaboration traslateToOrigin];
 	
 	CGFloat b = +INFINITY;
@@ -125,7 +135,7 @@
 	int	t = -1;
 	NSArray *_gestures = [self gestureTemplates];
 	for (int i = 0; i < [_gestures count]; i++) {
-		MCPointsContainer *gesturePoints = [[MCPointsContainer alloc] initWithPointsArrayForTemplate: [[_gestures objectAtIndex: i] objectForKey:@"points"] sampleTo:kNumPoints squareSize: kSquareSize];
+		MCPointsContainer *gesturePoints = [[MCPointsContainer alloc] initWithPointsArrayForTemplate: [[_gestures objectAtIndex: i] objectForKey:@"points"] sampleTo:numPoints squareSize: squareSize];
 		
 		CGFloat d = [p_endElaboration distanceAtBestAngleWithTemplate: gesturePoints];
 		
@@ -141,14 +151,14 @@
 		}
 		[gesturePoints release];
 	}
-	CGFloat score = 1.0 - (b/kHalfDiagonal);
-	CGFloat otherScore = 1.0 - (sndBest / kHalfDiagonal);
+	CGFloat score = 1.0 - (b/halfDiagonal);
+	CGFloat otherScore = 1.0 - (sndBest / halfDiagonal);
 	CGFloat ratio = otherScore / score;
 
-	if( (p_strictlyMatch == NO && t > -1) || (p_strictlyMatch && t >-1 && score > 0.7)) {
-		if ([p_associatedView.p_delegate respondsToSelector:@selector(MCGestureDelegate:recognizedGestureWithName:score:ratio:)]) {
+	if( (strictlyMatch == NO && t > -1) || (strictlyMatch && t >-1 && score > scoreThreshold)) {
+		if ([p_associatedView.p_delegate respondsToSelector:@selector(MCGestureDelegate:recognizedGestureWithName:score:ratio:rotation:size:)]) {
 			NSString *objectname = [ ((NSDictionary*)[_gestures objectAtIndex:t]) objectForKey:@"name"];
-			[p_associatedView.p_delegate MCGestureDelegate: p_associatedView recognizedGestureWithName:objectname score:score ratio:ratio];
+			[p_associatedView.p_delegate MCGestureDelegate: p_associatedView recognizedGestureWithName:objectname score:score ratio:ratio rotation:rotation size:size];
 		}
 	} else {		
 		if ([p_associatedView.p_delegate respondsToSelector:@selector(MCGestureDelegateGestureNotRecognized:)])

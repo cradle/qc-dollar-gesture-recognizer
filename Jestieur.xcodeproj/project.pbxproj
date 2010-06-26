@@ -23,6 +23,7 @@
 
 /* Begin PBXBuildFile section */
 		16BA95420A7EB2EB001E4983 /* JestieurPlugIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BA95410A7EB2EB001E4983 /* JestieurPlugIn.m */; };
+		21406CAE11D5BE0D00473D5B /* NSArray+NSValueConversions.m in Sources */ = {isa = PBXBuildFile; fileRef = 21406CAD11D5BE0D00473D5B /* NSArray+NSValueConversions.m */; };
 		217B7EDF11CFF39400BCE007 /* recognized.png in Resources */ = {isa = PBXBuildFile; fileRef = 217B7EDE11CFF39400BCE007 /* recognized.png */; };
 		217B7F6311CFF88100BCE007 /* gestures_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 217B7F5911CFF88100BCE007 /* gestures_data.txt */; };
 		217B7F6411CFF88100BCE007 /* MCGestureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 217B7F5C11CFF88100BCE007 /* MCGestureView.m */; };
@@ -49,6 +50,8 @@
 		16AA5C440A7EEE7300888E31 /* Jestieur_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Jestieur_Prefix.pch; sourceTree = "<group>"; };
 		16BA95400A7EB2EB001E4983 /* JestieurPlugIn.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = JestieurPlugIn.h; sourceTree = "<group>"; };
 		16BA95410A7EB2EB001E4983 /* JestieurPlugIn.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = JestieurPlugIn.m; sourceTree = "<group>"; };
+		21406CAC11D5BE0D00473D5B /* NSArray+NSValueConversions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSValueConversions.h"; sourceTree = "<group>"; };
+		21406CAD11D5BE0D00473D5B /* NSArray+NSValueConversions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSValueConversions.m"; sourceTree = "<group>"; };
 		217B7EDE11CFF39400BCE007 /* recognized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recognized.png; sourceTree = "<group>"; };
 		217B7F5811CFF88100BCE007 /* MCGestureCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCGestureCore.h; sourceTree = "<group>"; };
 		217B7F5911CFF88100BCE007 /* gestures_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = gestures_data.txt; sourceTree = "<group>"; };
@@ -107,6 +110,7 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				21406CAB11D5BDCA00473D5B /* NSArray+NSValueConversions */,
 				21C8D1C511D362A300305398 /* NSValue+CGPointConversions */,
 				21D8BACD11D23D3900CC5D96 /* Plugin */,
 				217B7F5711CFF88100BCE007 /* MCGestureRecognizer */,
@@ -120,6 +124,15 @@
 				8D5B49B6048680CD000E48DA /* Jestieur.plugin */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		21406CAB11D5BDCA00473D5B /* NSArray+NSValueConversions */ = {
+			isa = PBXGroup;
+			children = (
+				21406CAC11D5BE0D00473D5B /* NSArray+NSValueConversions.h */,
+				21406CAD11D5BE0D00473D5B /* NSArray+NSValueConversions.m */,
+			);
+			name = "NSArray+NSValueConversions";
 			sourceTree = "<group>";
 		};
 		217B7F5711CFF88100BCE007 /* MCGestureRecognizer */ = {
@@ -278,6 +291,7 @@
 				217B7F6411CFF88100BCE007 /* MCGestureView.m in Sources */,
 				217B7F6511CFF88100BCE007 /* MCGestureAnalyzer.m in Sources */,
 				217B7F6611CFF88100BCE007 /* MCPointsContainer.m in Sources */,
+				21406CAE11D5BE0D00473D5B /* NSArray+NSValueConversions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

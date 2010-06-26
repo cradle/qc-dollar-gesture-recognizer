@@ -17,9 +17,18 @@
 	return [NSValue valueWithPoint:NSPointFromCGPoint(point)];
 }
 - (CGPoint) CGPointValue {
-	//[((NSValue *)[p_pointsList objectAtIndex:i]) CGPointValue];
 	return NSPointToCGPoint([self pointValue]);
 }
+
+//TODO: my god... "CGPointCreateDictionaryRepresentation" & CGPointMakeDictionaryRepresentation (to do reverse)
+- (NSDictionary *) dictionaryValue {
+	NSPoint point = [self pointValue];
+	return [NSDictionary dictionaryWithObjectsAndKeys:
+			[NSNumber numberWithFloat: point.x], @"X",
+			[NSNumber numberWithFloat: point.y], @"Y",
+			nil];
+}
+
 @end
 
 @implementation NSValueCGPointConversions

@@ -46,9 +46,9 @@
 - (CGFloat) pathLength;
 
 - (void) rotateBy:(CGFloat) _radians;
-- (void) rotateToZero;
+- (CGFloat) rotateToZero;
 
-- (void) scaleToSquareSize:(NSInteger) _size;
+- (CGPoint) scaleToSquareSize:(NSInteger) _size;
 - (void) traslateToOrigin;
 - (CGRect) boundingBox;
 

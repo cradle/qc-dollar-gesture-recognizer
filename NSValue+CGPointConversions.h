@@ -14,6 +14,7 @@
 @interface NSValue(CGPointConversions)
 + (NSValue *) valueWithCGPoint: (CGPoint) point;
 - (CGPoint) CGPointValue;
+- (NSDictionary *) dictionaryValue;
 @end
 
 @interface NSValueCGPointConversions : NSObject

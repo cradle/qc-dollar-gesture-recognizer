@@ -23,7 +23,13 @@
 @class MCGestureView;
 @class MCPointsContainer;
 @interface MCGestureAnalyzer : NSObject {
-	BOOL				p_strictlyMatch;
+	BOOL				strictlyMatch;
+	float				scoreThreshold;
+	
+	// you can't change these without invalidating the stored gestures
+	float				numPoints;
+	float				squareSize;
+	float				halfDiagonal;
 	
 	MCGestureView		*p_associatedView;
 	NSMutableArray		*p_gesturesList;
@@ -31,7 +37,7 @@
 	MCPointsContainer	*p_endElaboration;
 }
 
-@property (assign) BOOL p_strictlyMatch;
+@property (assign) BOOL strictlyMatch;
 
 #pragma mark INIT METHODS
 - (id) initWithSourceView:(MCGestureView *) _view;

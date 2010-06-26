@@ -161,21 +161,24 @@
 	}
 }
 
-- (void) scaleToSquareSize:(NSInteger) _size {
+- (CGPoint) scaleToSquareSize:(NSInteger) _size {
 	CGRect B = [self boundingBox];
+	CGPoint scale = CGPointMake((_size / B.size.width), (_size / B.size.height));
 	for (int i=0; i < [self points]; i++) {
 		CGPoint thisPoint = [self pointAtIndex: i];
-		CGFloat qx = thisPoint.x * (_size / B.size.width);
-		CGFloat qy = thisPoint.y * (_size / B.size.height);
+		CGFloat qx = thisPoint.x * scale.x;
+		CGFloat qy = thisPoint.y * scale.y;
 		[p_pointsList replaceObjectAtIndex: i withObject: [NSValue valueWithCGPoint: CGPointMake(qx, qy)]];
 	}
+	return scale;
 }
 
-- (void) rotateToZero {
+- (CGFloat) rotateToZero {
 	CGPoint c = [self centroid];
 	CGPoint cFirstPoint = [self pointAtIndex: 0];
 	CGFloat theta = atan2f(c.y-cFirstPoint.y,c.x-cFirstPoint.x);
 	[self rotateBy: -theta];
+	return theta;
 }
 
 - (void) traslateToOrigin {
@@ -262,7 +265,7 @@
 }
 
 - (void) addPoint:(CGPoint) _point {
-	[p_pointsList addObject: [NSValue valueWithCGPoint:_point]];
+	[p_pointsList addObject: [NSValue valueWithCGPoint:_point]];	 
 }
 
 - (void) clearPoints {
@@ -272,5 +275,4 @@
 - (NSArray *) pointsArray {
 	return p_pointsList;
 }
-
 @end
