@@ -51,9 +51,12 @@
 
 
 //
+// TODO: urgent
+//	 * I think I am loading from disk too soon. I should do it when the plugin is loaded into a composition, not when quartz composer scans the library (which I presume is happening, because I get a long lag now)
 //
 // TODO: high priority
 //	 * fix order of output parameters
+//   * use 'angle to best match' + 'initial rotaiton' rather than just initial
 //   * make width and hight settable
 //     - allows returning gestures at the size they were inputted
 //     - all internal calculations are scale invariant
@@ -74,21 +77,44 @@
 //			+ GestureStore = [<gesture1>,<gesture2>, ...]
 //
 // TODO: possible enhancements
+//	 * make pure QC version (will make heavy use of 'math', conditional, and iteration)
+//	 *** when adding new templates to existing names, could use this from study
+//		An interactive extension would be to allow users to correct a failed recognition result using the N-best list, and then have their articulated gesture morph some percentage of the way toward the selected template until it would have been successfully recognized. This kind of interactive correction and animation might aid gesture learning and retention.
+//	 * allow bezier and straight line based gesture adding, like curve interface on interpolation plugin
+//   * have interpolation-like settings pane allowing editing, adding, removing etc..
+//   * try and make sure 'corner' points are kept
 //	 * add 'simple' line detection
 //		- add 'bounding-box' size measurements after the initial rotation ("axis-aligned")
 //			then work out the height of this box, compare that to a threshold
+// (from paper [after I worked out bounding box :P])
+// // NOTE TO SELF: instead of doing this, *could* do non linear scaling on major axis, exaggerating intentional?
+// modifying the algorithm. Furthermore, horizontal and vertical lines are abused by non-uniform scaling;
+// if 1-D gestures are to be recognized, candidates can be tested to see if the minor dimension of their 
+//bounding box exceeds a minimum. If it does not, the candidate (e.g., line) can be scaled uniformly so that
+//its major dimension matches the reference square. Finally, $1 does not use time,
+//so gestures cannot be differentiated on the basis of speed. Prototypers wishing to differentiate gestures
+//on these bases will need to understand and modify the $1 algorithm. For example, if scale invariance is 
+//not desired, the candidate C can be resized to match each unscaled template Ti before comparison. Or if 
+//rotation invariance is unwanted, C and Ti can be compared without rotating the indicative angle to 0¡. 
+//Importantly, such treatments can be made on a per gesture (Ti) basis.
 //	 * add 6 pointed start, see if it can handle it, $N can!
 //	 * store gestures with 't', time it occured presuming p[0] is t=0.
 //		- could normalise all times to '1' and use as another 'dimension' for measuring closeness
 //		- could use normalised 't' for where in line to sample, rather then equidistant in space (equichronic! boojah)
+//		- allow do both, compare somehow, blog all comparisons
+//	 * interpolate points non-linearly, or allow choice
+//		- external? at least 'bezier' would be good.
+//		- can I access QC interpolation? 
 //   * could have option for 'directionality' invariance
 //		- flipping the input in the x&|y planes, either pre-processed as separate tempaltes or multiple comaprison passes
 //   * make setable the more detailed settings
 //      - AngleRange(45.0) // how much a gesture can be rotated in either direction and still match
 //		- AnglePrecision(2.0) // How accurate rotations are? (not used in file, deleted, although "_threshold" exists
-//			+ I *think* it does a binary-like search between -45&45 degrees (using PHI), stopping when the difference is less than 'precision' degrees
+//			+ uses "Golden" search between -45&45 degrees (using PHI), stopping when the difference is less than 'precision' degrees
 //		- squareSize(250.0) // the 'scale' of the stored coords, [0..250][0..250]
 //		- numPoints(16) // number of points in a gesture
+//	 * "indicative angle" only exists for rotation invariance, and even then, only for speed boost
+//	 * make use binary search instead, math out average steps and benchmark, why does he use golden?
 //	 * allow external control for when to 'start', 'sample', and 'end'
 //   * allow passing of a gesture *as point list* for recognition
 //   * offer options for show gestures
