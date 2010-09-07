@@ -49,6 +49,8 @@
 */
 ////
 
+// See MCGestureCore.h for its license and conditions
+
 
 //
 // TODO: urgent
