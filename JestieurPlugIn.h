@@ -23,7 +23,7 @@
 //		 > unmodified, without its source
 //		 > modified, with its source
 //     + for profit, as part of a larger work:
-//		 > modified or unmodified, with its source mad public
+//		 > modified or unmodified, with its source made public
 //   - modify Jestieur:
 //	   + for personal use
 //	   + for personal profit, with modified source made public
